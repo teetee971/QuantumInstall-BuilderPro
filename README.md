@@ -1,12 +1,16 @@
 # QuantumInstall-BuilderPro
 
-**QuantumInstall-BuilderPro** est un installeur automatique pour configurer et déployer **Quantum AI Pro**.  
-📂 Inclut : scripts batch, fichiers `.exe` ou `.sh`, instructions pas à pas et lien vers les releases.
+🚀 **QuantumInstall-BuilderPro** est un installeur complet pour configurer et déployer **Quantum AI Pro** sur Windows et Linux.
 
-## Contenu
-- Scripts d'installation
-- Executables signés
-- Guide d'utilisation
+## 📦 Contenu
+- `install.bat` — Installe automatiquement sur Windows.
+- `install.sh` — Installe automatiquement sur Linux/Mac.
+- `QuantumAI_Installer.exe` — Version exécutable auto-extract.
+- `config/` — Fichiers de configuration par défaut.
+- `scripts/` — Scripts avant/après installation.
+- `docs/USAGE.md` — Guide d'utilisation détaillé.
 
-## Licence
-MIT License
+## 🛠️ Instructions rapides
+1. Clonez le repo :  
+   ```bash
+   git clone https://github.com/teetee971/QuantumInstall-BuilderPro.git
