@@ -1,0 +1,39 @@
+name: 🚀 QuantumInstall Auto Push
+
+on:
+  workflow_dispatch:  # Lancement manuel depuis GitHub Actions
+
+jobs:
+  push-zip:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout empty repo
+      uses: actions/checkout@v4
+      with:
+        persist-credentials: false  # On utilise la clé SSH à la place
+
+    - name: Set up SSH key
+      run: |
+        mkdir -p ~/.ssh
+        echo "${{ secrets.QUANTUM_SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa
+        ssh-keyscan github.com >> ~/.ssh/known_hosts
+
+    - name: Download prepared ZIP
+      run: |
+        wget -O QuantumInstall-BuilderPro.zip "https://YOUR_DOWNLOAD_LINK/QuantumInstall-BuilderPro.zip"
+        unzip QuantumInstall-BuilderPro.zip -d extracted
+
+    - name: Copy files to repo
+      run: |
+        cp -r extracted/QuantumInstall-BuilderPro/* .
+
+    - name: Commit and push
+      run: |
+        git config user.name "QuantumInstallBot"
+        git config user.email "bot@quantuminstall.local"
+        git add .
+        git commit -m "🚀 Initial push via GitHub Actions"
+        git remote set-url origin git@github.com:teetee971/QuantumInstall-BuilderPro.git
+        git push origin main
