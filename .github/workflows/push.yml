@@ -1,9 +1,9 @@
-name: 🚀 QuantumInstall Daily Auto Push
+name: 🚀 QuantumInstall Full Auto Push
 
 on:
   workflow_dispatch:      # Lancement manuel
   schedule:
-    - cron: '0 4 * * *'   # Tous les jours à 4h00 UTC (0h00 en Guadeloupe)
+    - cron: '0 4 * * *'   # Tous les jours à 4h UTC
 
 jobs:
   push:
@@ -13,14 +13,20 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
         with:
-          fetch-depth: 0
-          ssh-key: ${{ secrets.QUANTUM_SSH_PRIVATE_KEY }}
+          persist-credentials: false
+
+      - name: Set up SSH key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.QUANTUM_SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
 
       - name: Download ZIP from Google Drive
-        run: curl -L "https://drive.google.com/uc?export=download&id=1YU3exJHS4HsC1RM31vQUvSfDx-An7XCx" -o source.zip
+        run: curl -L "https://drive.google.com/uc?export=download&id=1YU3exJHS4HsC1RM31vQUvSfDx-An7XCx" -o QuantumInstall-BuilderPro_PUSH.zip
 
       - name: Unzip content
-        run: unzip -o source.zip -d .
+        run: unzip -o QuantumInstall-BuilderPro_PUSH.zip -d .
 
       - name: Commit and push changes
         run: |
@@ -30,6 +36,7 @@ jobs:
           if git diff-index --quiet HEAD --; then
             echo "✅ No changes to commit."
           else
-            git commit -m "🚀 Daily automated update from Google Drive"
+            git commit -m "🚀 Déploiement automatique complet"
+            git remote set-url origin git@github.com:teetee971/QuantumInstall-BuilderPro.git
             git push origin main
           fi
