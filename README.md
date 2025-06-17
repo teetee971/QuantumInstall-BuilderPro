@@ -1,3 +1,5 @@
+![Build Status](https://github.com/teetee971/QuantumInstall-BuilderPro/actions/workflows/push.yml/badge.svg)
+
 # QuantumInstall-BuilderPro
 
 🚀 **QuantumInstall-BuilderPro** est un installeur complet pour configurer et déployer **Quantum AI Pro** sur Windows et Linux.
