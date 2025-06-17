@@ -1,39 +1,31 @@
-name: 🚀 QuantumInstall Auto Push
-
+name: Google Drive Sync
 on:
-  workflow_dispatch:  # Lancement manuel depuis GitHub Actions
+  workflow_dispatch:
 
 jobs:
-  push-zip:
+  push:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout empty repo
-      uses: actions/checkout@v4
-      with:
-        persist-credentials: false  # On utilise la clé SSH à la place
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          ssh-key: ${{ secrets.QUANTUM_SSH_PRIVATE_KEY }}
 
-    - name: Set up SSH key
-      run: |
-        mkdir -p ~/.ssh
-        echo "${{ secrets.QUANTUM_SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
-        chmod 600 ~/.ssh/id_rsa
-        ssh-keyscan github.com >> ~/.ssh/known_hosts
+      - name: Download ZIP from Google Drive
+        run: curl -L "https://drive.google.com/uc?export=download&id=1YU3exJHS4HsC1RM31vQUvSfDx-An7XCx" -o source.zip
 
-    - name: Download prepared ZIP
-      run: |
-        wget -O QuantumInstall-BuilderPro.zip "https://YOUR_DOWNLOAD_LINK/QuantumInstall-BuilderPro.zip"
-        unzip QuantumInstall-BuilderPro.zip -d extracted
+      - name: Unzip content
+        run: unzip -o source.zip -d .
 
-    - name: Copy files to repo
-      run: |
-        cp -r extracted/QuantumInstall-BuilderPro/* .
-
-    - name: Commit and push
-      run: |
-        git config user.name "QuantumInstallBot"
-        git config user.email "bot@quantuminstall.local"
-        git add .
-        git commit -m "🚀 Initial push via GitHub Actions"
-        git remote set-url origin git@github.com:teetee971/QuantumInstall-BuilderPro.git
-        git push origin main
+      - name: Commit and push changes
+        run: |
+          git config user.name "${{ github.actor }}"
+          git config user.email "${{ github.actor }}@users.noreply.github.com"
+          git add -A
+          if git diff-index --quiet HEAD --; then
+            echo "✅ No changes to commit."
+          else
+            git commit -m "🚀 Automated update from Google Drive"
+            git push origin main
+          fi
