@@ -1,10 +1,14 @@
-name: Google Drive Sync
+name: 🚀 QuantumInstall Daily Auto Push
+
 on:
-  workflow_dispatch:
+  workflow_dispatch:      # Lancement manuel
+  schedule:
+    - cron: '0 4 * * *'   # Tous les jours à 4h00 UTC (0h00 en Guadeloupe)
 
 jobs:
   push:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -26,6 +30,6 @@ jobs:
           if git diff-index --quiet HEAD --; then
             echo "✅ No changes to commit."
           else
-            git commit -m "🚀 Automated update from Google Drive"
+            git commit -m "🚀 Daily automated update from Google Drive"
             git push origin main
           fi
