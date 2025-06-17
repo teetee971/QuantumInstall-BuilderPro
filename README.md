@@ -1,30 +1,32 @@
+
 # Quantum Install Builder Pro
 
-![Build Status](https://github.com/teetee971/QuantumInstall-BuilderPro/actions/workflows/push.yml/badge.svg)
+🚀 **Quantum Install Builder Pro** est l’installeur nouvelle génération propulsé par une IA auto-apprenante. Il automatise le déploiement, la configuration et la sécurité de vos environnements en un seul clic.
 
-🚀 Quantum Install Builder Pro est l’installeur nouvelle génération propulsé par une **IA auto-apprenante**.
+## 📌 Présentation
+Libérez-vous des tâches manuelles : grâce à son Conseiller IA auto-apprenant, Quantum Install Builder Pro apprend de chaque déploiement et ajuste automatiquement vos paramètres pour une performance optimale.
 
-## 📦 Modules inclus
+## 🎯 Modules Inclus
+- ✅ Auto Push Intelligent — Déploiement auto via Google Drive et GitHub Actions.
+- ✅ Conseiller IA Auto-apprenant — Analyse historique, recommandations, auto-corrections.
+- ✅ Scripts Pré/Post-installation — Vérification, nettoyage, rollback.
+- ✅ Logs Intelligents — Audit complet, historique lisible, export JSON.
+- ✅ Sécurité Renforcée — Clé SSH unique, Deploy Key, chiffrement AES-256, HTTPS.
 
-- ✅ Auto Push — Téléchargement et mise à jour automatique
-- ✅ Conseiller IA Auto-apprenant — Analyse historique, suggestions dynamiques, auto-correction
-- ✅ Scripts Pré/Post-installation — Vérification, nettoyage, configuration
-- ✅ Logs intelligents — Traçables et horodatés
-- ✅ Sécurité Renforcée — SSH, Deploy Key, Secrets GitHub
+## ❓ FAQ
+**Est-ce sécurisé ?**
+Oui : SSH privé, secrets chiffrés et HTTPS obligatoire.
 
-## ✅ Exemple de structure
+**Puis-je désactiver l’Auto Push ?**
+Oui, vous pouvez exécuter manuellement ou planifier à votre convenance.
 
-Voir dossier `config/`, `scripts/`, `logs/`.
+**Support ?**
+Une documentation complète est fournie.
 
-## ✅ Commandes typiques
+## 📦 Instructions
+- Cloner : `git clone https://github.com/teetee971/QuantumInstall-BuilderPro.git`
+- Lancer : `install.bat` (Windows) ou `install.sh` (Linux)
 
-```bash
-git clone https://github.com/teetee971/QuantumInstall-BuilderPro.git
-cd QuantumInstall-BuilderPro
-bash install.sh  # pour Linux/Mac
-install.bat      # pour Windows
-```
-
-## 🔒 Copyright
-
-© 2025 Quantum Install Builder Pro — Tous droits réservés. Toute reproduction ou distribution sans autorisation écrite est strictement interdite.
+## © Copyright
+© 2025 Quantum Install Builder Pro — Tous droits réservés.
+Toute reproduction ou distribution sans autorisation écrite est strictement interdite.
