@@ -1,0 +1,6 @@
+
+body { font-family: Arial, sans-serif; margin: 0; padding: 0; text-align: center; background: #f5f5f5; color: #333; }
+header { background: #007bff; color: #fff; padding: 50px 20px; }
+.download-btn { background: #28a745; color: #fff; padding: 15px 30px; text-decoration: none; border-radius: 5px; font-size: 18px; }
+main { padding: 40px 20px; text-align: left; max-width: 800px; margin: auto; }
+footer { background: #222; color: #fff; padding: 20px; }
