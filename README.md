@@ -21,6 +21,6 @@
 2. Lancer l'installateur :
    - **Windows** : `install.bat` ou `QuantumAI_Installer.exe`
    - **Linux/Mac** : `bash install.sh`
+Copyright © 2025 teetee971 — Tous droits réservés.
+Toute reproduction ou distribution sans autorisation écrite est interdite.
 
-## ⚖️ Licence
-MIT License.
