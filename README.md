@@ -14,3 +14,11 @@
 1. Clonez le repo :  
    ```bash
    git clone https://github.com/teetee971/QuantumInstall-BuilderPro.git
+   ```
+
+2. Lancer l'installateur :
+   - **Windows** : `install.bat` ou `QuantumAI_Installer.exe`
+   - **Linux/Mac** : `bash install.sh`
+
+## ⚖️ Licence
+MIT License.
