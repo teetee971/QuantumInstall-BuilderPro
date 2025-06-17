@@ -1,3 +1,5 @@
+Copyright © 2025 teetee971 — Tous droits réservés.
+Toute reproduction ou distribution sans autorisation écrite est interdite.
 ![Build Status](https://github.com/teetee971/QuantumInstall-BuilderPro/actions/workflows/push.yml/badge.svg)
 
 # QuantumInstall-BuilderPro
@@ -22,5 +24,4 @@
    - **Windows** : `install.bat` ou `QuantumAI_Installer.exe`
    - **Linux/Mac** : `bash install.sh`
 
-## ⚖️ Licence
-MIT License.
+
